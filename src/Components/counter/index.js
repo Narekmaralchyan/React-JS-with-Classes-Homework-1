@@ -2,6 +2,7 @@ import { Component } from "react";
 import Add from "../addButton";
 import Dec from "../decButton";
 import Inputs from "../inputs";
+import './index.css'
 
 class Counter extends Component{
     constructor(){
@@ -43,11 +44,14 @@ class Counter extends Component{
 
     render(){
         return(
-            <div className="Counter">
+            <div className="CounterApp">
                 <Inputs defineMaxMinValues={this.defineMaxMinValues} />
-                <Add disabled={ this.state.value == this.state.maxValue && this.state.maxValue }  onclick={this.addValue} />
-                <h1>{this.state.value}</h1>
-                <Dec disabled={this.state.value == this.state.minValue && this.state.minValue } onclick={this.decValue}/>
+                <div className="counter" >
+                    <Add disabled={ this.state.value == this.state.maxValue && this.state.maxValue } maxValue={this.state.maxValue} onclick={this.addValue} />
+                    <h1>{this.state.value}</h1>
+                    <Dec disabled={this.state.value == this.state.minValue && this.state.minValue } minValue={this.state.minValue} onclick={this.decValue}/>
+                </div>
+                
             </div>
         )
     }
