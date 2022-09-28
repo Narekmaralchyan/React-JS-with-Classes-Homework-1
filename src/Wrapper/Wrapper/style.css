@@ -20,14 +20,14 @@
   }
   
   .card {
-    font-family: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
-    border-radius: 20px 0px 20px 20px;
+    border-radius: 20px ;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 180px;
     height: 280px;
     width: 30%;
+    background-color: aqua;
     border: 1px solid black;
     position: relative;
   }
@@ -51,11 +51,11 @@
     border: none;
     font-size: 30px;
     color: black;
-    background-color: white;
+    background-color: aqua;
     cursor: pointer;
     position: absolute;
     top: 0;
-    left: calc(100% - 25px);
+    left: calc(100% - 40px);
   }
   .result {
     margin-top: 100px;

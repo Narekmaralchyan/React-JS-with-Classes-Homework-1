@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css'
-import Cards from './Cards.json';
-import Card from './Card';
-import Info from './Info';
+import Cards from '../Cards.json';
+import Card from '../Card';
+import Info from '../info/index.js';
 class Wrapper extends React.Component {
   constructor() {
     super();
@@ -10,7 +10,7 @@ class Wrapper extends React.Component {
       Cards: Cards,
     };
   }
-  changeCount = (key) => {
+  cardUnmountCounter = (key) => {
     this.setState({
       Cards: this.state.Cards.map((card) => {
         if (key === card.value) {
@@ -32,8 +32,8 @@ class Wrapper extends React.Component {
         <div className="container">
           {this.state.Cards.map((card) => {
             return (
-              <Card
-                changeCount={this.changeCount}
+                <Card
+                cardUnmountCounter={this.cardUnmountCounter}
                 key={card.value}
                 value={card.value}
                 count={card.count}
