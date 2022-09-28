@@ -1,10 +1,11 @@
 import './App.css';
 import Counter from './Counter/counter';
+import Wrapper from './Wrapper/Wrapper';
 
 function App() {
   return (
     <div className="App">
-      <Counter />
+      <Wrapper />
     </div>
   );
 }
