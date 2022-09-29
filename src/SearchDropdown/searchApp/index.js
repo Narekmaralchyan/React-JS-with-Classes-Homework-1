@@ -15,15 +15,14 @@ class SearchApp extends Component{
     }
     componentDidMount(){
         document.addEventListener("click",(e)=>{
-            if(e.target.classList.contains("inputValue")){
-                console.log("clicked input"); // ամեն անգամ սեղմելիս 6 անգամ աշխատումա
-                this.setState({
-                    hide: true
-                })
-            }
-             else if(!e.target.classList.contains("resultClass")){
+           if(!e.target.classList.contains("resultClass") &&g !e.target.classList.contains("inputValue")){
                 this.setState({
                     hide:false,
+                })
+            }
+            else {
+                this.setState({
+                    hide : true,
                 })
             }
             
