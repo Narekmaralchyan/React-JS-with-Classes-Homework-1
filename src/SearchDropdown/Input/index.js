@@ -14,12 +14,9 @@ class Input extends Component {
             inputValue: e.target.value
              })
     }
-    click =(e)=>{
-        this.props.hideResult();
-    }
     render() {
         return (
-            <input onClick={this.click} placeholder="input country" className="inputValue" value={this.state.inputValue} onChange={this.handleInput} />
+            <input  placeholder="input country" className="inputValue" value={this.state.inputValue} onChange={this.handleInput} />
         )
     }
 }

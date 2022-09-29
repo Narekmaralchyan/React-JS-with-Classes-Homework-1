@@ -13,22 +13,33 @@ class SearchApp extends Component{
             data : data,
         }
     }
+    componentDidMount(){
+        document.addEventListener("click",(e)=>{
+            if(e.target.classList.contains("inputValue")){
+                console.log("clicked input"); // ամեն անգամ սեղմելիս 6 անգամ աշխատումա
+                this.setState({
+                    hide: true
+                })
+            }
+             else if(!e.target.classList.contains("resultClass")){
+                this.setState({
+                    hide:false,
+                })
+            }
+            
+        })
+    }
     searchInput = (value)=>{
         this.setState({
             data: data.filter(item=>item.name.toUpperCase().includes(value.toUpperCase()))
         })
         
     }
-    hideResult = ()=>{
-        this.setState({
-            hide : !this.state.hide,
-        })
-    }
     
     render(){
         return(
             <div className='SearchApp'>
-                <Input hideResult= {this.hideResult} searchInput={this.searchInput} />
+                <Input searchInput={this.searchInput} />
                 {this.state.hide ? <Result data={this.state.data} />:"type for search"}
             </div>
         )
