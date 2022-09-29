@@ -15,12 +15,14 @@ class SearchApp extends Component{
     }
     componentDidMount(){
         document.addEventListener("click",(e)=>{
-           if(!e.target.classList.contains("resultClass") &&g !e.target.classList.contains("inputValue")){
+           if(!e.target.classList.contains("resultClass") && !e.target.classList.contains("inputValue")){
+                console.log("set false"); // աշխատում ա 2 անգամ
                 this.setState({
                     hide:false,
                 })
             }
             else {
+                console.log("set true");  // աշխատում ա 8 անգամ
                 this.setState({
                     hide : true,
                 })
