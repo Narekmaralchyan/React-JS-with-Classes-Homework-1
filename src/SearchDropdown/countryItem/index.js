@@ -1,11 +1,17 @@
 import { Component } from "react";
 
 class CountryItem extends Component{
+    constructor(props){
+        super(props)
+    }
+    onClick= ()=>{
+        this.props.selectCountry(this.props.name)
+    }
     render(){
         return(
-            <div className="CountryItem">
-                <img className="flag" src={this.props.flag} alt={this.props.name}/>
-                <span className="countryName">{this.props.name}</span>
+            <div onClick={this.onClick} className= "show CountryItem" >
+                <img  className="flag show" src={this.props.flag} alt={this.props.name}/>
+                <span className="countryName show">{this.props.name}</span>
             </div>
         )
     }

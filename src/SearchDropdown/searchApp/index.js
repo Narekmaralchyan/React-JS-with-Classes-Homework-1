@@ -9,26 +9,10 @@ class SearchApp extends Component{
         super()
         
         this.state = {
-            hide : true,
+            hide : false,
             data : data,
+            selectedCountry :""
         }
-    }
-    componentDidMount(){
-        document.addEventListener("click",(e)=>{
-           if(!e.target.classList.contains("resultClass") && !e.target.classList.contains("inputValue")){
-                console.log("set false"); // աշխատում ա 2 անգամ
-                this.setState({
-                    hide:false,
-                })
-            }
-            else {
-                console.log("set true");  // աշխատում ա 8 անգամ
-                this.setState({
-                    hide : true,
-                })
-            }
-            
-        })
     }
     searchInput = (value)=>{
         this.setState({
@@ -36,12 +20,41 @@ class SearchApp extends Component{
         })
         
     }
+    clearSelected =()=>{
+        this.setState({
+            selectedCountry:""
+        })
+    }
+    selectCountry = (value)=>{
+        this.setState({
+            selectedCountry:value,
+        })
+       
+    }
+    componentDidMount(){
+        document.addEventListener("click", e => {
+            if( !e.target.classList.contains("show") ){
+                this.setState({
+                    hide:true
+                })
+            }
+            else if(e.target.classList.contains("inputValue")){
+                this.setState({
+                    hide:false
+                })
+            }
+        })
+    }
     
     render(){
         return(
-            <div className='SearchApp'>
-                <Input searchInput={this.searchInput} />
-                {this.state.hide ? <Result data={this.state.data} />:"type for search"}
+            <div className='SearchApp show'>
+                <Input 
+                    clearSelected={this.clearSelected} 
+                    selectedCountry={this.state.selectedCountry} 
+                    searchInput={this.searchInput} 
+                    />
+                {this.state.hide ? "":<Result  data={this.state.data} selectCountry={this.selectCountry} />}
             </div>
         )
     }

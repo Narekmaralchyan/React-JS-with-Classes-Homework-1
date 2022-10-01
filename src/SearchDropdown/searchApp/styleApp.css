@@ -1,9 +1,9 @@
 .SearchApp{
-width: 600px;
-height: 600px;
+
 display: flex;
 flex-direction: column;
 align-items: center;
+border: 1px solid black;
 
 }
 .hide{
